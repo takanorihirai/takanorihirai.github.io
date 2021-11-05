@@ -70,6 +70,12 @@ body {
   margin: 10px auto;
 }
 
+#message {
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
 @media (min-width: 1000px) {
   #viewer.spreads:after {
     position: absolute;
@@ -96,16 +102,20 @@ body {
   #next {
     right: 40px;
   }
+
+  #message {
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .arrow {
   position: fixed;
   top: 50%;
-  margin-top: -32px;
+/*  margin-top: -32px; */
   font-size: 64px;
-  /*
-  color: #E2E2E2;
-  */
+/*  color: #E2E2E2; */
   color: #000000;
   font-family: arial, sans-serif;
   font-weight: bold;
@@ -116,6 +126,24 @@ body {
   text-decoration: none;
   opacity:0.2;
 }
+
+.message {
+  position: fixed;
+  top: 64%;
+/*  margin-top: -32px; */
+  font-size: 24px;
+/*  color: #E2E2E2; */
+  color: #000000;
+  font-family: arial, sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  text-decoration: none;
+  opacity:0.2;
+}
+
 
 .navlink {
   margin: 14px;

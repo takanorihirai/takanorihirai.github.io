@@ -23,7 +23,7 @@ console.log('index_epub', index_epub)
 if (!epub_array[index_epub]) {
     index_epub = 0;
 }
-var url_epub = epub_array[index_epub];
+var url_epub = getCurrentUrlPath()+epub_array[index_epub];
 console.log('url_epub', url_epub)
 
 var book = ePub(url_epub);
@@ -80,6 +80,18 @@ var keyListener = function (e) {
 // 
 rendition.on('relocated', function (location) {
     console.log('location', location);
+    var nodeMessage = document.getElementById('message');
+    if (location.hasOwnProperty('atStart')){
+        console.log('atStart');
+        nodeMessage.textContent = '最初のページ';
+    }else if (location.hasOwnProperty('atEnd')){
+        console.log('atEnd');
+        nodeMessage.textContent = '最後のページ';
+    }else{
+        console.log('normal');
+        nodeMessage.textContent = '';
+    }
+
     var percent = book.locations.percentageFromCfi(location.start.cfi);
     var percentage = Math.floor(percent * 100);
     console.log('percentage', percentage);
